@@ -125,7 +125,7 @@ def download(url):
     # url[1].send("[MSG], [Started] downloading   " + url[0] + "  resolution below " + url[2])
     result=""
     if (url[2] == "best"):
-        result = subprocess.run(["youtube-dl", "-o", "./downfolder/.incomplete/%(title)s.%(ext)s", "-f", "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]", "--exec", "touch {} && mv {} ./downfolder/", "--merge-output-format", "mp4", url[0]])
+        result = subprocess.run(["youtube-dl", "-o", "./downfolder/%(title)s.%(ext)s", url[0]])
     elif (url[2] == "audio"):
          result = subprocess.run(["youtube-dl", "-o", "./downfolder/.incomplete/%(title)s.%(ext)s", "-f", "bestaudio[ext=m4a]", "--exec", "touch {} && mv {} ./downfolder/", url[0]])
     else:
@@ -147,6 +147,8 @@ def download(url):
 def download_rest(url):
     result=""
     if (url[2] == "best"):
+        result = subprocess.run(["youtube-dl", "-o", "./downfolder/%(title)s.%(ext)s", url[0]])
+    elif (url[2] == "best-mp4"):
         result = subprocess.run(["youtube-dl", "-o", "./downfolder/.incomplete/%(title)s.%(ext)s", "-f", "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]", "--exec", "touch {} && mv {} ./downfolder/", "--merge-output-format", "mp4", url[0]])
     elif (url[2] == "audio"):
          result = subprocess.run(["youtube-dl", "-o", "./downfolder/.incomplete/%(title)s.%(ext)s", "-f", "bestaudio[ext=m4a]", "--exec", "touch {} && mv {} ./downfolder/", url[0]])
