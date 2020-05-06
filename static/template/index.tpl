@@ -25,14 +25,13 @@
 
             <div class="inner cover">
                 <h1 class="cover-heading">Let's Download </h1>
-                <p class="lead">Url can be download from YouTube or <a href="https://rg3.github.io/youtube-dl/supportedsites.html">any other supported site</a>.<br> The downloading state is passed to the server side event web socket.</p>
+                <p class="lead">Videos can be downloaded from YouTube or <a href="https://rg3.github.io/youtube-dl/supportedsites.html">any other supported site</a>.<br></p>
 
-                <p class="lead">Welcome {{userNm}}</p>
+                <p class="lead">Paste the url below</p>
 
                 <div class="row">
                     <form id="form1">
                         <div class="input-group">
-                            <!--<input name="url" id="url" type="url" class="form-control" placeholder="URL" value="https://www.youtube.com/watch?v=uMdgjd4x6wo">-->
                             <span class="input-group-btn">
                                 <select title="Pick a number" id="selResolution" class="form-control" style="width:100px;">
                                     <option>best</option>
@@ -63,12 +62,12 @@
             <p class"lead"><div id="queue"></div></p>
 
             <div class="table-responsive" style="overflow: hidden;">
-                <div style="overflow-y:auto; height:150px; width:auto; " >
+                <div style="overflow-y:auto; height:300px; width:auto; " >
                     <table class="table" style="color: #262626;">
                         <thead id="thd">
                             <tr>
-                                <th><p class="text-center">resolution</p></th>
-                                <th><p class="text-center">completed url</p></th>
+                                <th><p class="text-center">Resolution</p></th>
+                                <th><p class="text-center">Video url</p></th>
                             </tr>
                         </thead>
                         <tbody id="completeInfo">
@@ -80,9 +79,7 @@
 
             <div class="mastfoot">
                 <div class="inner">
-                    <p>Web frontend for <a href="https://github.com/hyeonsangjeon/youtube-dl-nas">youtube-dl-nas</a>, by @Hyeon Sang</a>.</p>
-                    <p>latest Ver 0.0425</p>
-                    <a href="https://www.youtube.com/watch?v=s9mO5q6GiAc">https://www.youtube.com/watch?v=s9mO5q6GiAc</a>
+                    <p>Web frontend for <a href="https://github.com/rleconte/youtube-dl-nas">youtube-dl-nas</a>.</p>
                     <p></p>
                 </div>
             </div>

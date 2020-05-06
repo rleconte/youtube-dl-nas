@@ -1,7 +1,7 @@
 body {
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #50afb7;
+    background-color: #c01c16;
 }
 
 .form-signin {
@@ -12,6 +12,9 @@ body {
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
     margin-bottom: 10px;
+}
+.form-signin-heading {
+    text-align: center;
 }
 .form-signin .checkbox {
     font-weight: normal;
