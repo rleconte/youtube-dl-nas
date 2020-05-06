@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+
+  server:
+    image: youtube-dl-nas:latest
+    environment:
+      USERNAME: username
+      PASSWORD: customize-password-here
+      TZ: Europe/Paris
+    restart: unless-stopped
+    volumes:
+      - path/to/local/folder:/downfolder
+    ports:
+      - 8080:8080
