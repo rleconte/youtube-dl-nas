@@ -33,7 +33,7 @@ https://hub.docker.com/r/modenaf360/youtube-dl-nas/
 The docker volume parameter `-v` is used by the queue operation to process the downloaded mount path to the host server
 
 - downloaded docker volume path :  '/downfolder'  
-- MY_ID, MY_PW : Required variables when you login validation, The start character  '!' '$' '&' is does not apply.
+- USERNAME, PASSWORD : Required variables when you login validation, The start character  '!' '$' '&' is does not apply.
 - TZ :  optional variable.
 
 ## docker options are as follows,
@@ -43,25 +43,25 @@ The docker volume parameter `-v` is used by the queue operation to process the d
 |-v  host:guest         |/downfolder (do not change guest location. expose volume mount to host server)                            |  
 |-d           |background run                                                | 
 |-p   host:guest        |expose port conainer core-os port to your os (port fowarding) |
-|-e MY_ID          |using it login id, linux environment variables, do not use start character   '!' '$' '&'                                |
-|-e MY_PW           |using it login password, linux environment variables ,  do not use start character   '!' '$' '&'                                  |
+|-e USERNAME          |using it login id, linux environment variables, do not use start character   '!' '$' '&'                                |
+|-e PASSWORD           |using it login password, linux environment variables ,  do not use start character   '!' '$' '&'                                  |
 |-e TZ           |take it to user country, linux environment variables                                   |
 |-e APP_PORT           |optinal variable. default is 8080   |
 
 ##### To run docker, excute this command in a ternimal:
 ```shell
-docker run -d --name youtube-dl -e MY_ID=modenaf360 -e MY_PW=1234  -v /volume2/youtube-dl:/downfolder -p 8080:8080 modenaf360/youtube-dl-nas
+docker run -d --name youtube-dl -e USERNAME=modenaf360 -e PASSWORD=1234  -v /volume2/youtube-dl:/downfolder -p 8080:8080 modenaf360/youtube-dl-nas
 ```
 
 ##### If want set TimeZone, example using in South-Korea web content 
 ```shell
-docker run -d --name youtube-dl -e TZ=Asia/Seoul -e MY_ID=modenaf360 -e MY_PW=1234 -v /volume2/youtube-dl:/downfolder -p 8080:8080 modenaf360/youtube-dl-nas
+docker run -d --name youtube-dl -e TZ=Asia/Seoul -e USERNAME=modenaf360 -e PASSWORD=1234 -v /volume2/youtube-dl:/downfolder -p 8080:8080 modenaf360/youtube-dl-nas
 ```
 
 ##### example, how to using docker host network and changing the application port :
 ```shell
 # use --net=host -e APP_PORT=custom_port
-docker run -d --name youtube-dl --net=host -e APP_PORT=9999 -e MY_ID=modenaf360 -e MY_PW=1234  -v /volume2/youtube-dl:/downfolder modenaf360/youtube-dl-nas
+docker run -d --name youtube-dl --net=host -e APP_PORT=9999 -e USERNAME=modenaf360 -e PASSWORD=1234  -v /volume2/youtube-dl:/downfolder modenaf360/youtube-dl-nas
 ```
 
 

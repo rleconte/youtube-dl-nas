@@ -26,10 +26,10 @@ def dl_queue_list():
 def dl_queue_login():
     with open('Auth.json') as data_file:
         data = json.load(data_file)  # Auth info, when docker run making file
-        req_id = request.forms.get("id")
-        req_pw = request.forms.get("myPw")
+        req_id = request.forms.get("username")
+        req_pw = request.forms.get("password")
 
-        if (req_id == data["MY_ID"] and req_pw == data["MY_PW"]):
+        if (req_id == data["USERNAME"] and req_pw == data["PASSWORD"]):
             response.set_cookie("account", req_id, secret="34y823423b23b4234#$@$@#be")
             redirect("/youtube-dl")
         else:
@@ -41,11 +41,11 @@ def dl_queue_list():
     with open('Auth.json') as data_file:
         data = json.load(data_file)
 
-    userNm = request.get_cookie("account", secret="34y823423b23b4234#$@$@#be")
-    print("CHK : ", userNm)
+    userName = request.get_cookie("account", secret="34y823423b23b4234#$@$@#be")
+    print("CHK : ", userName)
 
-    if (userNm == data["MY_ID"]):
-        return template("./static/template/index.tpl", userNm=userNm)
+    if (userName == data["USERNAME"]):
+        return template("./static/template/index.tpl", userName=userName)
     else:
         print("no cookie or fail login")
         redirect("/")
@@ -100,10 +100,10 @@ def q_put_rest():
 
     with open('Auth.json') as data_file:
         data = json.load(data_file)  # Auth info, when docker run making file
-        req_id = request.json.get("id")
-        req_pw = request.json.get("pw")
+        req_id = request.json.get("username")
+        req_pw = request.json.get("password")
 
-        if (req_id != data["MY_ID"] or req_pw != data["MY_PW"]):
+        if (req_id != data["USERNAME"] or req_pw != data["PASSWORD"]):
             return {"success": False, "msg": "Invalid password or account."}
         else:
             box = (url, "", resolution, "api")
