@@ -1,0 +1,2 @@
+# Will have LF line endings no matter what the local config of git is
+*.sh         text eol=lf
