@@ -87,7 +87,7 @@ def q_put():
             thr = Thr()
             thr.restart()
 
-        return {"success": True, "msg": '[MSG], We received your download. Please wait.'}
+        return {"success": True, "msg": '[MSG], Download in progress. Please wait.'}
     else:
         return {"success": False, "msg": "[MSG], download queue somethings wrong."}
 
@@ -134,11 +134,11 @@ def download(url):
 
     try:
         if(result.returncode==0):
-            url[1].send("[MSG], [Finished] " + url[0] + "  resolution below " + url[2]+", Remain download Count "+ json.dumps(dl_q.qsize()))
-            url[1].send("[QUEUE], Remaining download Count : " + json.dumps(dl_q.qsize()))
+            url[1].send("[MSG], [Finished] downloading " + url[0] + " with " + url[2] + " resolution, " + json.dumps(dl_q.qsize()) + " downloads remaining.")
+            url[1].send("[QUEUE], " + json.dumps(dl_q.qsize()) + " downloads remaining")
             url[1].send("[COMPLETE]," + url[2] + "," + url[0])
         else:
-            url[1].send("[MSG], [Finished] downloading  failed  " + url[0])
+            url[1].send("[MSG], [Finished] download failed  " + url[0])
             url[1].send("[COMPLETE]," + "url access failure" + "," + url[0])
     except error:
         print("Be Thread Safe")

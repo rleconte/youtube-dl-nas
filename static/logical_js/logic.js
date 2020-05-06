@@ -57,12 +57,12 @@ $(function () {
             }
             , error:function (jqXHR, textStatus, errorThrown) {
                 if(jqXHR.status==422){
-                    custAlert("해당 서비스 이름은 사용할 수 없습니다. 다시 선택해주세요. ", "red");
+                    custAlert("The service name cannot be used. Please select again.", "red");
 
                 }else if(jqXHR.status==500){
-                    custAlert(errorThrown +":내부 오류입니다. 잠시 후 다시 사용해주세요.","red");
+                    custAlert(errorThrown +":Internal error. Please try again later.","red");
                 }else{
-                    alert("내부 오류입니다. 잠시 후 다시 사용해주세요.");
+                    alert("Internal error. Please try again later.");
                 }
                 console.log("jqXHR"+jqXHR);
                 console.log("jqXHR"+jqXHR.status);
